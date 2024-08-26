@@ -72,6 +72,15 @@ closeBtn.addEventListener("click", () => {
 
 //slider event
 
+const detailButton = document.querySelectorAll(".detailButton");
+detailButton.forEach((btn1) => {
+  btn1.addEventListener("click", () => {
+    const getId = btn1.getAttribute("id");
+    localStorage.setItem("getId", getId);
+    window.location.href = "anime.html";
+  });
+});
+
 // 2nd slider content
 
 fetch("slider.json")
@@ -104,9 +113,6 @@ fetch("slider.json")
     let curSlide = 0;
     const maxSlide = slide.length;
 
-    // Determine the number of visible slides based on screen width
-    const getVisibleSlides = () => (window.innerWidth > 1400 ? 7 : 4);
-
     const gotoSlide = function (gotoSlide) {
       slide.forEach((s, i) => {
         s.style.transform = `translateX(${100 * (i - gotoSlide)}%)`;
@@ -116,59 +122,34 @@ fetch("slider.json")
     gotoSlide(0);
 
     const next = function () {
-      const visibleSlides = getVisibleSlides();
-      if (curSlide === maxSlide - visibleSlides) {
-        // Do nothing if we are at the last set of slides
+      if (curSlide == maxSlide - 7) {
       } else {
         curSlide++;
-        gotoSlide(curSlide);
       }
+      gotoSlide(curSlide);
     };
 
     const prev = function () {
       if (curSlide == 0) {
-        // Do nothing if we are at the first slide
       } else {
         curSlide--;
-        gotoSlide(curSlide);
       }
+      gotoSlide(curSlide);
     };
 
     right.addEventListener("click", next);
     left.addEventListener("click", prev);
 
-    // const slide = document.querySelectorAll(".slideTrend");
-    // const left = document.querySelector(".sliderleft");
-    // const right = document.querySelector(".sliderright");
-    // let curSlide = 0;
-    // const maxSlide = slide.length;
+    //slider next page code
 
-    // const gotoSlide = function (gotoSlide) {
-    //   slide.forEach((s, i) => {
-    //     s.style.transform = `translateX(${100 * (i - gotoSlide)}%)`;
-    //   });
-    // };
-
-    // gotoSlide(0);
-
-    // const next = function () {
-    //   if (curSlide == maxSlide - 7) {
-    //   } else {
-    //     curSlide++;
-    //   }
-    //   gotoSlide(curSlide);
-    // };
-
-    // const prev = function () {
-    //   if (curSlide == 0) {
-    //   } else {
-    //     curSlide--;
-    //   }
-    //   gotoSlide(curSlide);
-    // };
-
-    // right.addEventListener("click", next);
-    // left.addEventListener("click", prev);
+    const trentImageImg = document.querySelectorAll(".trentImageImg");
+    trentImageImg.forEach((img) => {
+      img.addEventListener("click", () => {
+        const getId = img.getAttribute("alt");
+        localStorage.setItem("getId", getId);
+        window.location.href = "anime.html";
+      });
+    });
   });
 
 //category API
@@ -191,6 +172,14 @@ function createCategory(category, categoryData) {
             </div>
           </div>`
     );
+    const catBtn = document.querySelectorAll(".btnFoot");
+    catBtn.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const getId = btn.getAttribute("id");
+        localStorage.setItem("getId", getId);
+        window.location.href = "anime.html";
+      });
+    });
   });
 }
 
@@ -208,7 +197,15 @@ fetch("https://api.jikan.moe/v4/anime")
     createCategory(category4, cate.data.slice(15, 20));
   });
 
+//footer
+
 //Top 10
+
+const gotoAnime = function (anime) {
+  const getId = anime.getAttribute("id");
+  localStorage.setItem("getId", getId);
+  window.location.href = "anime.html";
+};
 
 const top10 = document.querySelector(".top10");
 fetch("slider.json")
@@ -235,6 +232,10 @@ fetch("slider.json")
           </div>`
       );
     });
+    const btnFoot = document.querySelectorAll(".btnFoot");
+    btnFoot.forEach((suny) => {
+      suny.addEventListener("click", () => gotoAnime(suny));
+    });
   });
 
 // //Top Upcoming
@@ -257,11 +258,19 @@ fetch("https://api.jikan.moe/v4/seasons/upcoming")
           </div>`
       );
     });
+    const upAnimeImages = document.querySelectorAll(".upAnimeImages");
+    upAnimeImages.forEach((image) => {
+      image.addEventListener("click", () => {
+        const getId = image.getAttribute("alt");
+        localStorage.setItem("getId", getId);
+        window.location.href = "anime.html";
+      });
+    });
   });
 
 // new slider code
 
-// const slide = document.querySelectorAll(".slideTrend");
+//   const slide = document.querySelectorAll(".slideTrend");
 // const left = document.querySelector(".sliderleft");
 // const right = document.querySelector(".sliderright");
 // let curSlide = 0;
