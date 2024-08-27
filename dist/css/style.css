@@ -517,3 +517,165 @@ h3 {
 .lastRow p {
   color: var(--color1);
 }
+
+/* media query for 1280px */
+
+@media (max-width: 1400px) {
+  .slider {
+    height: 550px;
+  }
+  .bannerImage img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+  }
+  .overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        var(--bg1) 15%,
+        var(--bg1) 30%,
+        transparent
+      ),
+      linear-gradient(to top, var(--bg1) 0%, transparent, transparent);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  h2 {
+    font-size: 35px;
+    font-weight: 600;
+  }
+  .slideTrend{
+    width: calc(100% / 3.85);
+  }
+  .trentImage img{
+    width: 200px;
+  }
+  .top10{
+    padding: 20px 15px;
+  }
+  .top10Item{
+    gap: 15px;
+  }
+  .upcoming{
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* media query for tab */
+
+@media (max-width: 1250px) {
+  .category{
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+  section{
+    padding: 50px 20px;
+  }
+  header{
+    padding: 10px 20px;
+  }
+  .bannerContent{
+    left: 20px;
+    width: 50%;
+  }
+  .slideBtn{
+    right: 20px;
+  }
+  .footer{
+    padding: 45px 20px;
+    grid-template-columns: 1fr;
+  }
+  .sliderBtn{
+    display: none;
+  }
+  .slideTrend{
+    width: 250px;
+  }
+  .trendCont{
+    overflow: scroll;
+  }
+  .trendCont::-webkit-scrollbar{
+    display: none;
+  }
+}
+
+/* media query for mobile */
+
+@media (max-width: 600px) {
+ .category {
+    grid-template-columns: 1fr;
+    gap: 50px;
+} 
+.upcoming {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 30px;
+}
+.upAnime img{
+  height: 250px;
+}
+.upAnime:nth-child(n + 15) {
+  display: none;
+}
+.bannerIcon{
+  display: none;
+}
+.threeLines{
+  display: none;
+}
+.Spotlight {
+    color: var(--primary);
+    font-size: 14px;
+}
+.bannerContent{
+  gap: 20px;
+  width: 70%;
+  bottom: 0;
+}
+h2{
+  font-size: 25px;
+}
+.search{
+  border-radius: 3px;
+}
+.activeSearch .inputSearch{
+  display: block !important;
+}
+.inputSearch{
+  display: none;
+  position: absolute;
+  width: 92%;
+  top: 80px;
+  left: 50%;
+  height: 45px;
+  border-radius: 3px;
+  transform: translateX(-50%);
+  z-index: -1;
+  padding: 0 15px !important;
+}
+
+.bannerImage img {
+object-position: right;
+}
+.overlay{
+  background: linear-gradient( to top, var(--bg1) 5%, transparent )
+}
+.right{
+  bottom: 0;
+}
+.left{
+  bottom: 60px;
+}
+.footerLink{
+  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+header img {
+    width: 100px;
+}
+}
