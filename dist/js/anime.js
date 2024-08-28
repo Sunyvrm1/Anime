@@ -24,6 +24,16 @@ closeBtn.addEventListener("click", () => {
   nav.classList.toggle("activeMenu");
 });
 
+//shrinking header
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 100) {
+    header.classList.add("scrollHeader");
+  } else {
+    header.classList.remove("scrollHeader");
+  }
+});
+
 // fetch
 
 const displayValue = function (value) {

@@ -113,6 +113,9 @@ fetch("slider.json")
     let curSlide = 0;
     const maxSlide = slide.length;
 
+    // Determine the number of visible slides based on screen width
+    const getVisibleSlides = () => (window.innerWidth > 1400 ? 6 : 4);
+
     const gotoSlide = function (gotoSlide) {
       slide.forEach((s, i) => {
         s.style.transform = `translateX(${100 * (i - gotoSlide)}%)`;
@@ -122,19 +125,22 @@ fetch("slider.json")
     gotoSlide(0);
 
     const next = function () {
-      if (curSlide == maxSlide - 7) {
+      const visibleSlides = getVisibleSlides();
+      if (curSlide === maxSlide - visibleSlides) {
+        // Do nothing if we are at the last set of slides
       } else {
         curSlide++;
+        gotoSlide(curSlide);
       }
-      gotoSlide(curSlide);
     };
 
     const prev = function () {
       if (curSlide == 0) {
+        // Do nothing if we are at the first slide
       } else {
         curSlide--;
+        gotoSlide(curSlide);
       }
-      gotoSlide(curSlide);
     };
 
     right.addEventListener("click", next);

@@ -289,7 +289,7 @@ h3 {
   display: flex;
   align-items: end;
   gap: 10px;
-  width: calc(100% / 6.85);
+  width: calc(100% / 5.78);
   position: absolute;
   transition: transform 0.5s;
 }
@@ -549,7 +549,7 @@ h3 {
     font-weight: 600;
   }
   .slideTrend{
-    width: calc(100% / 3.85);
+    width: calc(100% / 3.75);
   }
   .trentImage img{
     width: 200px;
